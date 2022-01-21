@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: order-service
+  data:
+    mongodb:
+      uri: mongodb+srv://teja_123:teja_123@cluster0.nb7g8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      data: shopping
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+server:
+  port: 8086
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka
+  instance:
+    prefer-ip-address: true
+
+springdoc:
+  swagger-ui:
+    path: /order-service-swagger.html
+  operationsSorter: method
+
+
+jwtSecret: secret
+jwtExpiration: 86400

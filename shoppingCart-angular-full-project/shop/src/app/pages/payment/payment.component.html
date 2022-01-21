@@ -1,0 +1,50 @@
+<h1 align="center" class="display-8 mb-6">payment Detail</h1>
+<br />
+<hr />
+<br />
+<h5 *ngIf="(order$)?.orderStatus ==1" style="display: inline" class="float-left">
+    Payment Made SuccessFully.
+</h5>
+
+<br />
+<hr />
+<br />
+<h5 style="display: inline" class="float-left">
+    Order ID : {{(order$)?._id}}
+</h5>
+<br />
+<hr />
+<br />
+<h5 style="display: inline" class="float-left">
+    Order Status : {{OrderStatus[(order$)?.orderStatus]}}
+</h5>
+
+<div *ngIf="(wallet)?.id; else walletblock">
+  <br />
+  <hr />
+  <br />
+  <h5 style="display: inline" class="float-left">
+      Shipping Address : {{(order$)?.buyerAddress}}
+  </h5>
+  
+  <br />
+  <hr />
+  <br />
+  <h5 style="display: inline" class="float-left">
+      Wallet Id  : {{(wallet)?.id}}, <br /> <br />Wallet Balance : {{(wallet)?.currentBalance}}
+  </h5>
+  <br /><br />
+  <h5 *ngIf="(order$)?.orderStatus ==0" style="display: inline" class="float-right">
+      <button (click)="payFromWallet()" class="btn btn-warning float-right">Pay from Wallet</button>
+  </h5>
+</div>
+<ng-template #walletblock>
+  <br />
+  <hr />
+  <h5>
+    No Wallet created for you. Please click below to create wallet and endjoy the benifit of INR 1000
+  </h5>
+  <br />
+  <a routerLink="/wallet" class="btn btn-warning float-left"> Create Wallet </a>
+</ng-template>
+

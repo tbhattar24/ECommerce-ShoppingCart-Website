@@ -1,0 +1,71 @@
+Why Shopping Cart ?
+ Nowdays the present very crucial to all over world because covoid pandamic is happening all over the world 
+Durning this pandamic no one is going for out to buying 
+so that i came with a website which is used for shopping which ever product people that means customer 
+by sitting in home  they can buy the product ..
+
+
+***********************************************************************************************
+
+for creating of that website i have used the spring technologies which know well 
+
+Technolgies i have used : 
+for Backend 
+	1.Spring Boot: Spring Boot helps developers create applications that just run. Specifically, 
+		it lets you create standalone applications that run on their own, without relying on an external web server, 
+		by embedding a web server such as Tomcat or Netty into your app during the initialization process
+	2.Lombok : Its a spring boot Library and it used to remove the boilerplate code and save the 
+	 	time for us  during development by just using some annotations.
+	3.MongoCompass : It is used fo the connection of Mongodb Compass where the products of my webiste and customer details can be stored 
+		in that database by creating new database for each of the microservice 
+for UI (User-Interface)
+	1.Angular 7.0 : In this angular it can able to create the website by implmemting some of the code like binding , forms ,reactive forms 
+	2. Bootstrap 4.0 : Where this bootstrap can able to design the responviceness of the mycurrent webiste and also it can able to implememt the styles by some of the inbuild classes 
+
+thats all about my brief introduction of my case study coming to the architecture of my case study 
+
+
+************************************************************************************************************
+	
+
+lets us go into my archit... 
+here i found 6 microservices along with that eureka server and api gateway 
+ lets us talk about breif explain of each and every microservice ..
+1. Eureka server : Eureka Server is an application that holds the information about all client-service applications.
+		 Every Micro service will register into the Eureka server and Eureka server knows all the client applications 
+		running on each port and IP address. Eureka Server is also known as Discovery Server.
+
+2.API gateway :  It is Gateway where we can connect Front end And Backend With the Help of Routing Modules and Http
+		An API gateway is an API management tool that sits between a client and a collection of backend services. 
+		An API gateway acts as a reverse proxy to accept all application programming interface (API) calls, aggregate the various services required to fulfill them, 
+		and return the appropriate result.
+
+3. Product: Where as admin can we add the products what ever they want to show in that shopping website so that customer can easily buy they prouct by 
+	   shwoing them with some description , rating and price of the product 
+	   if that customer is satisfied with anyone of the product that customer need to login /register so that case i am implement the profile microservice.
+
+4.Profile Service: 
+	1.Admin : Where Admin Access the whole Products Which ever we are added in the website that can see the no. of stocks remaining and 
+		admin also access all other microservices where as customer and product details .
+	2.Customer :Sign up: Where the customer new vister to the he/she want to register mandatory for buying a cart 
+		    Sign In :where as the customer is already register he/she can directly login throught thier credetials and they can easily buy the product.
+	
+Once Sign in is done by the customer they can add they product in cart for selectinh no. of items they want that product 
+
+
+5.Cart Service : In this Service customer can add they quantity of that product and that product is doing some arthimaticl opertaion after that its show subtotal of 
+		that product 
+
+6.Order Service : In this service Customer need to verify the shipping address and product payment Price 
+		if the customer is ok with that all then customer need to go the wallet 
+		
+7.Wallet Service: In this Service If the customer is new to the Website and that customer need to create the wallet 
+		after creating the wallet and go the order page and click on the status view so that customer can able to see that the product still pending in payment 
+		So then we can make payment by clicking on makepayment 
+		Finally the order is placed then it shows that order placed finally done and sign out of that shopping cart 	
+				.................................thank you ...........................
+
+
+
+
+		

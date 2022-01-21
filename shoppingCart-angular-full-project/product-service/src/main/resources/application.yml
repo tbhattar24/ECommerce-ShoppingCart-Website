@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: product-service
+  cloud:
+    client:
+      hostname: localhost
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+  jackson:
+    default-property-inclusion: NON_NULL
+  data:
+    mongodb:
+     uri: mongodb+srv://teja_123:teja_123@cluster0.nb7g8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+     data: shopping
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+
+server:
+  port: 8081
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+    intance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${server.port}
+
+springdoc:
+  swagger-ui:
+    path: /product-service-swagger.html
+  operationsSorter: method
+
+logging:
+  level:
+    reactor:
+      netty: INFO
+    org:
+      springframework:
+        web: TRACE

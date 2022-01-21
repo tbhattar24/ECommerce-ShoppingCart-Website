@@ -1,0 +1,33 @@
+<h1 align="center" class="display-6 mb-5">{{title}}</h1>
+<div class="row card-deck text-center">
+  <div *ngFor="let productInfo of page?.products" class="col-lg-4 ">
+    <div class="card mb-4"  >
+      <a routerLink="" *ngIf="productInfo.image.includes('https'); else imageBlock">
+        <img height="50%" class="card-img-top" src="{{productInfo.image}}" alt="{{productInfo.name}}">
+      </a>
+      <ng-template #imageBlock>
+        <img height="50%" class="card-img-top" src="/assets{{productInfo.image}}" alt="{{productInfo.name}}">
+      </ng-template>
+      <div class="card-body">
+        <h4 class="card-title ">{{productInfo.name}}</h4>
+        <div class="text-left">
+          <p [ngClass]="{'limitTextHeight': isReadMore}">
+            <strong>Description: </strong>{{productInfo.description}}
+          </p>
+          <button type="button" (click)="showText()">
+            {{ isReadMore ? 'Read More': 'Read Less' }}
+          </button>
+          <br />
+          <p class="card-text"><strong>Price: </strong>{{productInfo.price | currency: 'INR'}}</p>
+          <p class="card-text"><strong>Stock: </strong>{{productInfo.countInStock}}</p>
+        </div>
+        <br>
+        <a routerLink="/product/{{productInfo._id}}" *ngIf="productInfo.countInStock >= 0; else offBlock"
+           class="btn btn-primary btn-lg"
+        >View Product!</a>
+        <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">Unavailable</a></ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+<app-pagination  [currentPage]="page" ></app-pagination>

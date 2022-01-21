@@ -1,0 +1,24 @@
+<h1 align="center" class="display-6 mb-2">My Wallet</h1>
+
+<div *ngIf="this.wallet?.id?.length <= 0; else walletblock">
+  <h5 style="display: inline;"><br/> No wallet is setup for you . <br /> Click following button to get wallet with initial 1000 INR in it.</h5>
+  <button (click)="createWallet()" class="btn btn-warning float-right">Create Wallet</button>
+</div>
+<!--Cart Detail Table-->
+<ng-template #walletblock>
+<table class="table table-striped text-center">
+    <thead>
+    <tr>
+        <th scope="col">Wallet ID</th>
+        <th scope="col">Wallet Balance</th>
+
+    </tr>
+    <tr>
+      <td class="align-middle">{{this.wallet?.id}}</td>
+      <td class="align-middle">{{this.wallet?.currentBalance}}</td>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+</ng-template>
