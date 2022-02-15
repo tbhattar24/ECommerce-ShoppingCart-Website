@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: auth-service
+  data:
+    mongodb:
+      uri: mongodb+srv://teja_123:teja_123@cluster0.nb7g8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+      data: shopping 
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jackson:
+    default-property-inclusion: NON_NULL
+
+server:
+  port: 7000
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8083/eureka
+  instance:
+    prefer-ip-address: true
+
+springdoc:
+  swagger-ui:
+    path: /auth-service-swagger.html
+  operationsSorter: method
+
+
+jwt:
+  secret: secretkey
+  token:
+    validity: 1800000
