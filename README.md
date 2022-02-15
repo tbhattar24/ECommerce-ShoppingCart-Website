@@ -1,2 +1,2 @@
-# ECommerce-ShoppingCart-Website
-Spring Boot- Angular js- JavaScript 
+# shoppingCart
+Spring boot microservices for shopping cart
